@@ -9,6 +9,7 @@ from sklearn.metrics import f1_score, accuracy_score
 from transformers import AutoTokenizer
 from transformers import AdamW, get_linear_schedule_with_warmup
 from utils import model2hugmodel, model2layer
+from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
 
@@ -109,7 +110,7 @@ def train(args, train_dataset, dev_dataset, test_dataset, model):
     best_acc_dev = 0
     best_acc_test = 0
     cur_patience = 0
-    for i in range(int(args.num_train_epochs)):
+    for i in tqdm(range(int(args.num_train_epochs))):
         random.shuffle(train_dataset)
         epoch_loss = 0.0
         for j in range(0, len(train_dataset), args.batch_size):

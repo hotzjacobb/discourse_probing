@@ -21,14 +21,19 @@ jupyter-console==6.2.0
 jupyter-core==4.6.3
 jupyterlab-pygments==0.1.1
 matplotlib==3.3.2
-mkl-fft==1.1.0
-mkl-random==1.1.1
-mkl-service==2.3.0
+#mkl-fft==1.1.0
+#mkl-fft>=1.1.0
+#mkl-fft>=1.1.0
+#mkl-random==1.1.1
+#mkl-service==2.3.0
+# NOTE: above mkl-* are for Intel x86 processors
 nltk==3.5
 numpy==1.19.0
 nvidia-ml-py3==7.352.0
 pandas==1.0.5
-Pillow @ file:///tmp/build/80754af9/pillow_1594307295532/work
+#Pillow @ file:///tmp/build/80754af9/pillow_1594307295532/work
+# NOTE: weird that they have a local build for this, trying without
+Pillow >= 9.2.0
 pyemd==0.5.1
 Pygments==2.6.1
 pymed==0.8.9
@@ -48,7 +53,8 @@ spacy==2.3.2
 subprocess32==3.5.4
 tokenizers==0.9.3
 torch==1.5.1
-torchvision==0.6.0a0+35d732a
+torchvision
+#torchvision==0.6.0a0+35d732a
 tqdm==4.48.0
 transformers==3.5.1
 urllib3==1.25.9
