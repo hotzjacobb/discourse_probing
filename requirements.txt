@@ -34,6 +34,8 @@ pandas==1.0.5
 #Pillow @ file:///tmp/build/80754af9/pillow_1594307295532/work
 # NOTE: weird that they have a local build for this, trying without
 Pillow >= 9.2.0
+# protobuf downgrade added manually, see https://github.com/huggingface/transformers/issues/17544
+protobuf==3.20.0
 pyemd==0.5.1
 Pygments==2.6.1
 pymed==0.8.9
