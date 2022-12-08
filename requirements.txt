@@ -2,7 +2,11 @@ certifi==2020.6.20
 configparser==5.0.0
 conllu==2.3.2
 docker-pycreds==0.4.0
-en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+# en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+# For Compute Canada, I add the following two lines to my bash script after installing requirements
+# for some reasons, Compute Can. Pip isn't able to make 
+# wget https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+# python -m spacy install en_core_web_sm-2.2.0.tar.gz
 entrypoints==0.3
 filelock==3.0.12
 future==0.18.2
