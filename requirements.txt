@@ -32,7 +32,8 @@ matplotlib==3.3.2
 #mkl-service==2.3.0
 # NOTE: above mkl-* are for Intel x86 processors
 nltk==3.5
-numpy==1.19.0
+# For Compute Canada use 'pip install numpy==1.19.0 --no-index' instead
+#numpy==1.19.0
 nvidia-ml-py3==7.352.0
 pandas==1.0.5
 #Pillow @ file:///tmp/build/80754af9/pillow_1594307295532/work
