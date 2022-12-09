@@ -60,7 +60,8 @@ sklearn==0.0
 spacy==2.3.2
 subprocess32==3.5.4
 tokenizers==0.9.3
-torch==1.5.1
+# For Compute Canada use 'pip install pandas==1.13.0 --no-index' instead
+#torch==1.5.1
 torchvision
 #torchvision==0.6.0a0+35d732a
 tqdm==4.48.0
