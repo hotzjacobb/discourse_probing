@@ -1,0 +1,88 @@
+# CC pip
+#certifi==2020.6.20
+configparser==5.0.0
+conllu==2.3.2
+# CC pip
+#docker-pycreds==0.4.0
+# en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+# For Compute Canada, I add the following two lines to my bash script after installing requirements
+# for some reasons, Compute Can. Pip isn't able to make 
+# wget https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+# python -m spacy install en_core_web_sm-2.2.0.tar.gz
+# CC pip
+#entrypoints==0.3
+# CC pip
+#filelock==3.0.12
+# CC pip
+#future==0.18.2
+# CC pip
+#gitdb==4.0.5
+GitPython==3.1.7
+gql==0.2.0
+graphql-core==1.1
+# CC pip
+#idna==2.10
+ipdb==0.13.3
+# CC pip
+#ipykernel==5.3.4
+# CC pip
+#ipython==7.16.1
+# CC pip
+#ipython-genutils==0.2.0
+# CC pip
+#jupyter==1.0.0
+#jupyter-client==6.1.7
+# CC pip
+#jupyter-console==6.2.0
+# CC pip
+#jupyter-core==4.6.3
+jupyterlab-pygments==0.1.1
+# CC pip
+#matplotlib==3.3.2
+#mkl-fft==1.1.0
+#mkl-fft>=1.1.0
+#mkl-fft>=1.1.0
+#mkl-random==1.1.1
+#mkl-service==2.3.0
+# NOTE: above mkl-* are for Intel x86 processors
+# CC pip
+#nltk==3.5
+# For Compute Canada use 'pip install numpy==1.19.0 --no-index' instead
+#numpy==1.19.0
+## CC pip
+#nvidia-ml-py3==7.352.0
+# For Compute Canada use 'pip install pandas==1.5.0 --no-index' instead
+#pandas==1.0.5
+#Pillow @ file:///tmp/build/80754af9/pillow_1594307295532/work
+# NOTE: weird that they have a local build for this, trying without
+# CC pip
+#Pillow >= 9.2.0
+# protobuf downgrade added manually, see https://github.com/huggingface/transformers/issues/17544
+protobuf==3.20.0
+# CC pip
+#pyemd==0.5.1
+#Pygments==2.6.1
+pymed==0.8.9
+#pyparsing==2.4.7
+#pyrsistent==0.17.3
+#python-dateutil==2.8.1
+#pytz==2020.1
+#PyYAML==5.3.1
+#pyzmq==19.0.2
+regex==2020.7.14
+#requests==2.24.0
+scikit-learn==0.23.1
+#scipy==1.5.2
+#seqeval==1.2.2
+#sklearn==0.0
+spacy==2.3.2
+#subprocess32==3.5.4
+#tokenizers==0.9.3
+# For Compute Canada use 'pip install pandas==1.13.0 --no-index' instead
+#torch==1.5.1
+#torchvision
+#torchvision==0.6.0a0+35d732a
+tqdm==4.48.0
+#transformers==3.5.1
+#urllib3==1.25.9
+wandb==0.9.3
