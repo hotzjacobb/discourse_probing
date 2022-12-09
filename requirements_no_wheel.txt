@@ -58,7 +58,8 @@ jupyterlab-pygments==0.1.1
 # CC pip
 #Pillow >= 9.2.0
 # protobuf downgrade added manually, see https://github.com/huggingface/transformers/issues/17544
-protobuf==3.20.0
+# CC pip
+#protobuf==3.20.0
 # CC pip
 #pyemd==0.5.1
 #Pygments==2.6.1
