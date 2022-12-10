@@ -69,6 +69,7 @@ nbconvert==6.0.7
 notebook==6.4.8
 ipywidgets==7.7.1
 click==8.0.4
+joblib==1.2.0
 torch==1.6.0
 torchvision
 #torchvision==0.6.0a0+35d732a
