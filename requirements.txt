@@ -73,7 +73,11 @@ joblib==1.1.0
 qtpy==1.9.0
 jupyterlab-pygments==0.1.2
 nbformat==5.0.8
+bleach==4.1.0
 torch==1.6.0
+jinja2==3.0.2
+terminado==0.10.1
+nbclient==0.5.3
 torchvision
 #torchvision==0.6.0a0+35d732a
 #tqdm==4.48.0
