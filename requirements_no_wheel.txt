@@ -61,7 +61,7 @@ jupyterlab-pygments==0.1.1
 # CC pip
 #protobuf==3.20.0
 # CC pip
-#pyemd==0.5.1
+pyemd==0.5.1
 #Pygments==2.6.1
 pymed==0.8.9
 #pyparsing==2.4.7
