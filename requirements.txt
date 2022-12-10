@@ -66,6 +66,7 @@ tokenizers==0.9.3
 traitlets==4.3.2
 qtconsole==5.1.1
 nbconvert==6.0.7
+notebook==6.4.8
 torch==1.6.0
 torchvision
 #torchvision==0.6.0a0+35d732a
