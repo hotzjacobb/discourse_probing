@@ -45,7 +45,7 @@ Pillow==8.1.2
 # protobuf downgrade added manually, see https://github.com/huggingface/transformers/issues/17544
 #protobuf==3.20.0
 protobuf==3.19
-pyemd==0.5.1
+#pyemd==0.5.1
 Pygments==2.6.1
 #pymed==0.8.9
 pyparsing==2.4.7
@@ -57,12 +57,15 @@ pyzmq==19.0.2
 #regex==2020.7.14
 requests==2.24.0
 #scikit-learn==0.23.1
-scipy==1.5.2
+scipy==1.5.4
 seqeval==1.2.2
 sklearn==0.0
 #spacy==2.3.2
 subprocess32==3.5.4
 tokenizers==0.9.3
+traitlets==4.3.2
+qtconsole==5.1.1
+nbconvert==6.0.7
 torch==1.5.1
 torchvision
 #torchvision==0.6.0a0+35d732a
