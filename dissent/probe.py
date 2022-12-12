@@ -27,7 +27,7 @@ args_parser.add_argument('--local_rank', type=int, default=-1)
 args_parser.add_argument('--patience', type=int, default=10, help='patience for early stopping')
 args_parser.add_argument('--no_cuda', default=False)
 args_parser.add_argument('--model_type', type=str, default='bert', \
-        choices=['bert', 'roberta', 'albert', 'electra', 'gpt2', 'bart', 't5', 'bert-large', 'bert-zh', 'bert-es', 'bert-de'], help='select one of language')
+        choices=['bert', 'roberta', 'albert', 'electra', 'gpt2', 'bart', 't5', 't5-base','bert-large', 'bert-zh', 'bert-es', 'bert-de'], help='select one of language')
 args_parser.add_argument('--num_layers', type=int, default=-1, help='start from number of layers')
 args_parser.add_argument('--output_folder', type=str, default='output', help='output_folder')
 args_parser.add_argument('--train_data', type=str, default='data/train.json', help='path to train data')
@@ -212,9 +212,9 @@ if args.start == 1:
 for idx in range(args.start, args.num_layers+1):
     args.num_layers = idx
     model = Model(args, device)
-    is_t5_base = hasattr(model.encoder, "block") and (len(model.encoder.block) +  len(model.encoder.block)) == 24
-    if is_t5_base and idx % 2 == 1:
-        continue # b/c T5-base is bigger than other models (24 layers); skip odd layers; save compute
+    # is_t5_base = args.model_type == 't5-small' and args.num_layers == 24
+    # if is_t5_base and idx % 2 == 1:
+    #     continue # b/c T5-base is bigger than other models (24 layers); skip odd layers; save compute
     model.to(args.device)
     global_step, tr_loss, best_acc_dev, best_acc_test, dev_pred, test_pred = train(args, train_dataset, dev_dataset, test_dataset, model)
     print('Dev set accuracy', best_acc_dev)
