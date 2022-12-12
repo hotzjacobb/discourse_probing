@@ -39,10 +39,8 @@ args_parser.add_argument('--start', type=int, default=1)
 # Map to huggingface model
 args = args_parser.parse_args()
 args.model_name = model2hugmodel[args.model_type]
-print(args.model_name)
 if args.num_layers == -1:
     args.num_layers = model2layer[args.model_type]
-print(args.num_layers)
 
 
 # Load the right model class and methods
@@ -214,11 +212,9 @@ if args.start == 1:
 for idx in range(args.start, args.num_layers+1):
     args.num_layers = idx
     model = Model(args, device)
-    print(model)
-    print(model.__dict__)
-    is_t5_base = hasattr(model.encoder, "block") and (len(model.encoder.block) +  len(model.encoder.block)) == 24
-    if is_t5_base and idx % 2 == 1:
-        continue # b/c T5-base is bigger than other models (24 layers); skip odd layers; save compute
+    # is_t5_base = args.model_type == 't5-small' and args.num_layers == 24
+    # if is_t5_base and idx % 2 == 1:
+    #     continue # b/c T5-base is bigger than other models (24 layers); skip odd layers; save compute
     model.to(args.device)
     global_step, tr_loss, best_acc_dev, best_acc_test, dev_pred, test_pred = train(args, train_dataset, dev_dataset, test_dataset, model)
     print('Dev set accuracy', best_acc_dev)
