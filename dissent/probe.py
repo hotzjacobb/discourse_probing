@@ -27,7 +27,7 @@ args_parser.add_argument('--local_rank', type=int, default=-1)
 args_parser.add_argument('--patience', type=int, default=10, help='patience for early stopping')
 args_parser.add_argument('--no_cuda', default=False)
 args_parser.add_argument('--model_type', type=str, default='bert', \
-        choices=['bert', 'roberta', 'albert', 'electra', 'gpt2', 'bart', 't5', 'bert-large', 'bert-zh', 'bert-es', 'bert-de'], help='select one of language')
+        choices=['bert', 'roberta', 'albert', 'electra', 'gpt2', 'bart', 't5', 't5-base','bert-large', 'bert-zh', 'bert-es', 'bert-de'], help='select one of language')
 args_parser.add_argument('--num_layers', type=int, default=-1, help='start from number of layers')
 args_parser.add_argument('--output_folder', type=str, default='output', help='output_folder')
 args_parser.add_argument('--train_data', type=str, default='data/train.json', help='path to train data')
