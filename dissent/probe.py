@@ -39,8 +39,10 @@ args_parser.add_argument('--start', type=int, default=1)
 # Map to huggingface model
 args = args_parser.parse_args()
 args.model_name = model2hugmodel[args.model_type]
+print(args.model_name)
 if args.num_layers == -1:
     args.num_layers = model2layer[args.model_type]
+print(args.num_layers)
 
 
 # Load the right model class and methods
