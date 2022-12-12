@@ -12,6 +12,7 @@ model2hugmodel = {
     'gpt2': 'gpt2',
     'bart': 'facebook/bart-base',
     't5': 't5-small',
+    't5-base': 't5-base',
     'bert-large': 'bert-large-uncased',
     'bert-zh': 'bert-base-chinese',
     'bert-es': 'dccuchile/bert-base-spanish-wwm-uncased',
