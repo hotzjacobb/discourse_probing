@@ -215,9 +215,7 @@ for idx in range(args.start, args.num_layers+1):
     args.num_layers = idx
     model = Model(args, device)
     print(model)
-    print(model.encoder)
-    print('got to this point')
-    print(model.encoder.block)
+    print(model.__dict__)
     is_t5_base = hasattr(model.encoder, "block") and (len(model.encoder.block) +  len(model.encoder.block)) == 24
     if is_t5_base and idx % 2 == 1:
         continue # b/c T5-base is bigger than other models (24 layers); skip odd layers; save compute
