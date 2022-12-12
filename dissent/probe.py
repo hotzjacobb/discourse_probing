@@ -216,6 +216,7 @@ for idx in range(args.start, args.num_layers+1):
     model = Model(args, device)
     print(model)
     print(model.encoder)
+    print('got to this point')
     print(model.encoder.block)
     is_t5_base = hasattr(model.encoder, "block") and (len(model.encoder.block) +  len(model.encoder.block)) == 24
     if is_t5_base and idx % 2 == 1:
