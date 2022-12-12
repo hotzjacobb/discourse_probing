@@ -27,6 +27,7 @@ model2layer = {
     'gpt2': 12,
     'bart': 12,
     't5': 12,
+    't5-base': 24,
     'bert-large': 24,
     'bert-zh': 12,
     'bert-es': 12,
