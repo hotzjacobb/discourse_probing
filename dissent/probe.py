@@ -212,6 +212,9 @@ if args.start == 1:
 for idx in range(args.start, args.num_layers+1):
     args.num_layers = idx
     model = Model(args, device)
+    is_t5_base = hasattr(model.encoder, "block") and (len(model.encoder.block) +  len(model.encoder.block)) == 24
+    if is_t5_base and idx % 2 == 1:
+        continue # b/c T5-base is bigger than other models (24 layers); skip odd layers; save compute
     model.to(args.device)
     global_step, tr_loss, best_acc_dev, best_acc_test, dev_pred, test_pred = train(args, train_dataset, dev_dataset, test_dataset, model)
     print('Dev set accuracy', best_acc_dev)
