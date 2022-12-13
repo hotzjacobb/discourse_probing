@@ -105,7 +105,8 @@ def get_model(model_type, num_layers, all_layers=None):
 
 def bart_t5_forward(model, x, attention_mask, num_layers):
     model.eval()
-    if num_layers <=6:
+    num_encoder_layers = 6 if num_layers == 12 else 12
+    if num_encoder_layers <= 6:
         with torch.no_grad():
             out = model.encoder(x, attention_mask=attention_mask)
         return out[0]
@@ -113,4 +114,3 @@ def bart_t5_forward(model, x, attention_mask, num_layers):
         with torch.no_grad():
             out = model.forward(input_ids=x, attention_mask=attention_mask)
         return out[0]
-
