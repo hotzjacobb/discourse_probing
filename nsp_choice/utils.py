@@ -12,6 +12,7 @@ model2hugmodel = {
     'gpt2': 'gpt2',
     'bart': 'facebook/bart-base',
     't5': 't5-small',
+    't5-base': 't5-base',
     'bert-large': 'bert-large-uncased',
     'bert-zh': 'bert-base-chinese',
     'bert-es': 'dccuchile/bert-base-spanish-wwm-uncased',
@@ -26,6 +27,7 @@ model2layer = {
     'gpt2': 12,
     'bart': 12,
     't5': 12,
+    't5-base': 24,
     'bert-large': 24,
     'bert-zh': 12,
     'bert-es': 12,
@@ -54,15 +56,16 @@ def get_model(model_type, num_layers, all_layers=None):
                 ), f"Invalid num_layers: num_layers should be between 0 and {model.encoder.config.num_hidden_layers} for {model_type}"
                 model.encoder.config.num_hidden_layers = num_layers
             elif hasattr(model.encoder, "block"): #T5
-                assert (
-                    (len(model.encoder.block) +  len(model.encoder.block)) == 12
-                ), f"We only handle T5-small in this experiment"
-                # WARNING only handles T5-small
-                if num_layers > 6:
-                    model.decoder.block = torch.nn.ModuleList([layer for layer in model.decoder.block[:num_layers-6]])
-                else:
-                    model.encoder.block = torch.nn.ModuleList([layer for layer in model.encoder.block[:num_layers]])
-                # model.encoder.block = torch.nn.ModuleList([layer for layer in model.encoder.block[:num_layers]])
+                if (len(model.encoder.block) +  len(model.encoder.block)) == 12: #T5-small (6 encoder layers, 6 decoder layers)
+                    if num_layers > 6:
+                        model.decoder.block = torch.nn.ModuleList([layer for layer in model.decoder.block[:num_layers-6]])
+                    else:
+                        model.encoder.block = torch.nn.ModuleList([layer for layer in model.encoder.block[:num_layers]])
+                else: # T5-base (12 encoder layers, 12 decoder layers)
+                    if num_layers > 12: 
+                        model.decoder.block = torch.nn.ModuleList([layer for layer in model.decoder.block[:num_layers-12]])
+                    else:
+                        model.encoder.block = torch.nn.ModuleList([layer for layer in model.encoder.block[:num_layers]])
             elif hasattr(model.encoder, "layers"): #BART and PEGASUS
                 assert (
                     (len(model.encoder.layers) +  len(model.encoder.layers)) == 12
@@ -102,7 +105,8 @@ def get_model(model_type, num_layers, all_layers=None):
 
 def bart_t5_forward(model, x, attention_mask, num_layers):
     model.eval()
-    if num_layers <=6:
+    num_encoder_layers = 6 if num_layers == 12 else 12
+    if num_encoder_layers <= 6:
         with torch.no_grad():
             out = model.encoder(x, attention_mask=attention_mask)
         return out[0]
