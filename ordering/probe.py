@@ -26,7 +26,7 @@ args_parser.add_argument('--local_rank', type=int, default=-1)
 args_parser.add_argument('--patience', type=int, default=10, help='patience for early stopping')
 args_parser.add_argument('--no_cuda', default=False)
 args_parser.add_argument('--model_type', type=str, default='bert', \
-        choices=['bert', 'roberta', 'albert', 'electra', 'gpt2', 'bart', 't5', 'bert-large', 'bert-zh', 'bert-es', 'bert-de'], help='select one of language')
+        choices=['bert', 'roberta', 'albert', 'electra', 'gpt2', 'bart', 't5', 't5-base', 'bert-large', 'bert-zh', 'bert-es', 'bert-de'], help='select one of language')
 args_parser.add_argument('--num_layers', type=int, default=-1, help='start from number of layers')
 args_parser.add_argument('--output_folder', type=str, default='output', help='output_folder')
 args_parser.add_argument('--train_data', type=str, default='data/data_en/train.json', help='path to train data')
@@ -192,6 +192,9 @@ if args.start == 1:
 for idx in range(args.start,args.num_layers+1):
     args.num_layers = idx
     model = Model(args, device)
+    # b/c of my limited compute I will just test the encoder of t5-base
+    if idx > 12 == 1:
+        continue
     model.to(args.device)
     global_step, tr_loss, best_corr_dev, best_corr_test, dev_pred, test_pred = train(args, train_dataset, dev_dataset, test_dataset, model)
     print('Dev set RankCorr', best_corr_dev)
