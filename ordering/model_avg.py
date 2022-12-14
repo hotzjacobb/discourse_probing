@@ -112,7 +112,7 @@ class Model(nn.Module):
         batch_size = src.shape[0]
         with torch.no_grad():
             if self.args.model_type in ['t5', 't5-base', 'bart']:
-                top_vec  = bart_t5_forward(self.model, src, mask_src, self.args.num_layers)
+                top_vec  = bart_t5_forward(self.model, src, mask_src, self.args.num_layers, self.args.model_type)
             elif self.args.model_type in ['electra']:
                 top_vec = self.model(input_ids=src, attention_mask=mask_src)[0]
             else:

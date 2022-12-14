@@ -103,10 +103,10 @@ def get_model(model_type, num_layers, all_layers=None):
             raise ValueError(f"Not supported model architecture: {model_type}")
     return model
 
-def bart_t5_forward(model, x, attention_mask, num_layers):
+def bart_t5_forward(model, x, attention_mask, num_layers, model_name):
     model.eval()
-    num_encoder_layers = 6 if num_layers == 12 else 12
-    if num_encoder_layers <= 6:
+    num_encoder_layers = 6 if model_name != 't5-base' else 12
+    if num_layers <= num_encoder_layers:
         with torch.no_grad():
             out = model.encoder(x, attention_mask=attention_mask)
         return out[0]
