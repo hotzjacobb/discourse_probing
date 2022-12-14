@@ -193,7 +193,7 @@ for idx in range(args.start,args.num_layers+1):
     args.num_layers = idx
     model = Model(args, device)
     # b/c of my limited compute I will just test the encoder of t5-base
-    if idx > 6 == 1:
+    if idx > 6:
         continue
     model.to(args.device)
     global_step, tr_loss, best_corr_dev, best_corr_test, dev_pred, test_pred = train(args, train_dataset, dev_dataset, test_dataset, model)
